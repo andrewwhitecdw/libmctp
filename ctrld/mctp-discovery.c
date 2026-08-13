@@ -411,6 +411,11 @@ int mctp_set_eid_get_response(uint8_t *mctp_resp_msg, size_t resp_msg_len,
 			"%s: Endpoint require EID pool allocation: 0x%x (status)\n",
 			__func__, set_eid_resp->status);
 
+		if (eid_count == NULL) {
+			MCTP_CTRL_ERR("%s: eid_count is NULL\n", __func__);
+			return MCTP_RET_REQUEST_FAILED;
+		}
+
 		/* Get the EID pool size from response */
 		g_eid_pool_size = set_eid_resp->eid_pool_size;
 
