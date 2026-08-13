@@ -964,7 +964,7 @@ static int exec_daemon_mode(const mctp_cmdline_args_t *cmdline,
 		MCTP_CTRL_INFO("%s: Start MCTP-over-SPI Discovery\n", __func__);
 
 		/* Create static endpoint for spi ctrl daemon */
-		int rc = mctp_spi_discover_endpoint(cmdline, mctp_ctrl);
+		rc = mctp_spi_discover_endpoint(cmdline, mctp_ctrl);
 		if (rc != MCTP_RET_DISCOVERY_SUCCESS) {
 			MCTP_CTRL_ERR(
 				"%s: MCTP spi discover endpoint failed.\n",
