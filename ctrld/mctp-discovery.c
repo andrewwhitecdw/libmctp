@@ -957,7 +957,7 @@ mctp_ret_codes_t mctp_get_msg_type_request(int sock_fd,
 		binding_size = sizeof(pvt_binding_usb);
 	}
 
-	/* Encode for Get Endpoint UUID message */
+	/* Encode for Get Message Type Support message */
 	req_ret = mctp_encode_ctrl_cmd_get_msg_type_support(&msg_type_req);
 	if (req_ret == false) {
 		MCTP_CTRL_ERR("%s: Packet preparation failed\n", __func__);
