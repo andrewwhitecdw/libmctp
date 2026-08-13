@@ -140,7 +140,7 @@ mctp_ret_codes_t mctp_i2c_get_mctp_ver_support_request(int sock_fd, uint8_t eid)
 	/* Send the request message over socket */
 	mctp_ret = mctp_client_with_binding_send(
 		dest_eid, sock_fd, (const uint8_t *)&ep_req,
-		sizeof(struct mctp_ctrl_cmd_set_eid), &bind_id,
+		sizeof(struct mctp_ctrl_cmd_get_mctp_ver_support), &bind_id,
 		(void *)&pvt_binding, sizeof(pvt_binding));
 
 	if (mctp_ret == MCTP_REQUESTER_SEND_FAIL) {
