@@ -254,16 +254,29 @@ static void mctp_ctrl_clean_up(mctp_ctrl_t *mctp_ctrl)
 	/* Close the socket connection */
 	if (g_socket_fd != -1) {
 		close(g_socket_fd);
+		g_socket_fd = -1;
 	}
 
 	/* Close the signalfd socket */
 	if (g_signal_fd != -1) {
 		close(g_signal_fd);
+		g_signal_fd = -1;
+	}
+
+	/* Close timer file descriptors */
+	if (g_disc_timer_fd != -1) {
+		close(g_disc_timer_fd);
+		g_disc_timer_fd = -1;
+	}
+	if (g_poll_recover_timer_fd != -1) {
+		close(g_poll_recover_timer_fd);
+		g_poll_recover_timer_fd = -1;
 	}
 
 	/* Close D-Bus */
 	if (g_sdbus != NULL) {
 		sd_bus_unref(g_sdbus);
+		g_sdbus = NULL;
 	}
 
 	/* Delete Routing table entries */
