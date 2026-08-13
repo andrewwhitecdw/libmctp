@@ -62,15 +62,13 @@ static uint8_t g_bridge_eid, g_own_eid, g_bridge_pool_start;
 static bool in_ignore_list(const mctp_ctrl_t *ctrl,
 			   const struct get_routing_table_entry *routing_entry)
 {
-	bool ret = false;
 	for (int i = 0; i < ctrl->cmdline->ignore_eids_len; ++i) {
 		if (ctrl->cmdline->ignore_eids[i] ==
 		    routing_entry->starting_eid) {
-			ret = true;
-			break;
+			return true;
 		}
 	}
-	return ret;
+	return false;
 }
 
 /* Send function for Prepare for Endpoint discovery */
