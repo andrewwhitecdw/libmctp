@@ -649,7 +649,7 @@ int mctp_get_routing_table_get_response(mctp_ctrl_t *ctrl, mctp_eid_t eid,
 
 	(void)eid;
 
-	MCTP_CTRL_TRACE("%s: Get EP reesponse\n", __func__);
+	MCTP_CTRL_TRACE("%s: Get routing table entries response\n", __func__);
 
 	if (resp_msg_len < sizeof(struct mctp_ctrl_resp_get_routing_table)) {
 		MCTP_CTRL_ERR("%s: Response too short: %zu < %zu\n", __func__,
