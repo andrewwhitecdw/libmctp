@@ -549,6 +549,7 @@ int mctp_alloc_eid_get_response(uint8_t *mctp_resp_msg, size_t resp_msg_len)
 		MCTP_CTRL_ERR(
 			"%s: Alloc Endpoint ID rejected/already allocated by another bus owner\n",
 			__func__);
+		return MCTP_RET_REQUEST_FAILED;
 	}
 
 	/* Get EID pool size and the EID start */
