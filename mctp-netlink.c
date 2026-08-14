@@ -42,6 +42,11 @@ int update_interface_info(const char *ifname, const uint8_t *phy_addr,
 			 __func__);
 		return -1;
 	}
+	if (phy_addlen > MAX_ADDR_LEN) {
+		MCTP_ERR("%s invalid phy_addlen %u (max %u)\n", __func__,
+			 (unsigned int)phy_addlen, (unsigned int)MAX_ADDR_LEN);
+		return -1;
+	}
 	memset(endpoint_hwinfo.phy_addr, 0x0, MAX_ADDR_LEN);
 	memcpy(endpoint_hwinfo.phy_addr, phy_addr, phy_addlen);
 	endpoint_hwinfo.phy_addlen = phy_addlen;
