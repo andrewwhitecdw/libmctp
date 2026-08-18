@@ -459,7 +459,7 @@ mctp_ret_codes_t mctp_alloc_eid_send_request(
 	struct mctp_usb_pkt_private pvt_binding_usb;
 	size_t binding_size = 0;
 
-	/* Set destination EID as NULL */
+	/* Set destination EID to the assigned EID */
 	dest_eid = assigned_eid;
 
 	/* Set private binding */
