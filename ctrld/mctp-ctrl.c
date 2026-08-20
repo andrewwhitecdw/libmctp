@@ -705,7 +705,6 @@ static int mctp_reset_bridge_i2c(void)
 {
 	int fd;
 	int ret;
-	char filename[20];
 	struct i2c_msg msg;
 	struct i2c_rdwr_ioctl_data msgset;
 	uint8_t reset_cmd[] = { 0x0b, 0x05, 0x84 }; // Reset command bytes
@@ -713,8 +712,7 @@ static int mctp_reset_bridge_i2c(void)
 	memset(&msg, 0, sizeof(msg));
 	memset(&msgset, 0, sizeof(msgset));
 	/* Open I2C device */
-	snprintf(filename, sizeof(filename), "/dev/i2c-1");
-	fd = open(filename, O_RDWR);
+	fd = open("/dev/i2c-1", O_RDWR);
 	if (fd < 0) {
 		MCTP_CTRL_ERR("%s: Failed to open I2C device: %s\n", __func__,
 			      strerror(errno));
