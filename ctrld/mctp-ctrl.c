@@ -157,7 +157,6 @@ int fill_interface_info(mctp_binding_ids_t binding_type, char *pattern,
 		memcpy(ifname, pattern, MAX_INTERFACE_LEN - 1);
 		ifname[MAX_INTERFACE_LEN - 1] = '\0';
 		memset(phy_addr, 0x0, MAX_ADDR_LEN);
-		phy_addlen = 0;
 	} else if (binding_type == MCTP_BINDING_SMBUS) {
 		/* Ignore as SMBUS/I2c will be filled during discovery*/
 		return 0;
