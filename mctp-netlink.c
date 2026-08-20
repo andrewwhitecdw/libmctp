@@ -160,6 +160,12 @@ static int fill_rtalter_args(struct mctp_rtalter_msg *msg, struct rtattr **prta,
 	size_t rta_len;
 	int ifindex = if_nametoindex(local_interface.ifname);
 
+	if (ifindex <= 0) {
+		MCTP_ERR("%s Invalid interface index %d for %s\n", __func__,
+			 ifindex, local_interface.ifname);
+		return -1;
+	}
+
 	rta_len = 0;
 	memset(msg, 0x0, sizeof(*msg));
 	msg->nh.nlmsg_flags = NLM_F_REQUEST | NLM_F_ACK;
