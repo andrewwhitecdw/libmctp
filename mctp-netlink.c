@@ -230,7 +230,6 @@ int mctp_nl_add_route(mctp_eid_t eid)
 	int rc = 0;
 	struct sockaddr_nl addr = { 0 };
 
-	rta_len = 0;
 	/* Fill eid and interface index*/
 	rc = fill_rtalter_args(&msg, &rta, &rta_len, eid);
 	if (rc) {
