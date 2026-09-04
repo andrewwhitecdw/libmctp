@@ -16,9 +16,8 @@
  */
 /* SPDX-License-Identifier: Apache-2.0 OR GPL-2.0-or-later */
 
-#include <bits/time.h>
-#include <ctype.h>
 #define _GNU_SOURCE
+#include <ctype.h>
 
 #include <assert.h>
 #include <err.h>
