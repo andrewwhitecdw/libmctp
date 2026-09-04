@@ -700,7 +700,7 @@ int mctp_i2c_get_endpoint_uuid_response(mctp_eid_t eid, uint8_t *mctp_resp_msg,
 	return MCTP_RET_REQUEST_SUCCESS;
 }
 
-/* Send function for Get Messgae types */
+/* Send function for Get Message types */
 mctp_ret_codes_t mctp_i2c_get_msg_type_request(int sock_fd, mctp_eid_t eid)
 {
 	bool req_ret;
@@ -758,7 +758,7 @@ mctp_ret_codes_t mctp_i2c_get_msg_type_request(int sock_fd, mctp_eid_t eid)
 	return MCTP_RET_REQUEST_SUCCESS;
 }
 
-/* Receive function for Get Messgae types */
+/* Receive function for Get Message types */
 int mctp_i2c_get_msg_type_response(mctp_eid_t eid, uint8_t *mctp_resp_msg,
 				   size_t resp_msg_len)
 {
