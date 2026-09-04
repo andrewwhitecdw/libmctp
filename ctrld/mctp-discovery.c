@@ -247,7 +247,7 @@ mctp_ret_codes_t mctp_ep_discovery_send_request(int sock_fd,
 	return MCTP_RET_REQUEST_SUCCESS;
 }
 
-/* Receive function for Prepare for Endpoint discovery */
+/* Receive function for Endpoint discovery */
 int mctp_ep_discovery_get_response(uint8_t *mctp_resp_msg, size_t resp_msg_len)
 {
 	bool req_ret;
