@@ -395,7 +395,7 @@ int mctp_set_eid_get_response(uint8_t *mctp_resp_msg, size_t resp_msg_len,
 	if (set_eid_resp->status & MCTP_SETEID_ASSIGN_STATUS_REJECTED) {
 		MCTP_CTRL_DEBUG(
 			"%s: Set Endpoint id: 0x%x, Status:0x%x (Rejected by the device)\n",
-			__func__, set_eid_resp->status, set_eid_resp->eid_set);
+			__func__, set_eid_resp->eid_set, set_eid_resp->status);
 
 		/* Get the EID from the bridge (FPGA) */
 		g_bridge_eid = set_eid_resp->eid_set;
