@@ -80,8 +80,8 @@
 #include <linux/i2c.h>
 
 /* MCTP Tx/Rx waittime in milli-seconds */
-#define MCTP_CTRL_WAIT_SECONDS (1 * 1000)
-#define MCTP_CTRL_WAIT_TIME    (2 * MCTP_CTRL_WAIT_SECONDS)
+#define MCTP_CTRL_WAIT_MS      (1 * 1000)
+#define MCTP_CTRL_WAIT_TIME    (2 * MCTP_CTRL_WAIT_MS)
 
 /* MCTP control retry threshold */
 #define MCTP_CTRL_CMD_RETRY_THRESHOLD 3
@@ -564,7 +564,7 @@ static int do_mctp_cmdline(const mctp_cmdline_args_t *cmd, int sock_fd)
 					"%s: MCTP Rx Command Timed out (waited %f seconds)\n",
 					__func__,
 					(float)(t_end - t_start) /
-						(float)MCTP_CTRL_WAIT_SECONDS);
+						(float)MCTP_CTRL_WAIT_MS);
 			}
 
 			/* Return as failed once crossed threshold */
