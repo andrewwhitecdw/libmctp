@@ -81,6 +81,7 @@ mctp_prepare_ep_discovery_send_request(int sock_fd, mctp_binding_ids_t bind_id)
 	mctp_requester_rc_t mctp_ret;
 	struct mctp_ctrl_cmd_prepare_ep_discovery prep_ep_discovery;
 	struct mctp_ctrl_req ep_discovery_req;
+	mctp_ret_codes_t ret = MCTP_RET_REQUEST_SUCCESS;
 	size_t msg_len;
 	mctp_eid_t dest_eid;
 	void *pvt_binding = NULL;
@@ -141,9 +142,10 @@ mctp_prepare_ep_discovery_send_request(int sock_fd, mctp_binding_ids_t bind_id)
 
 	if (mctp_ret == MCTP_REQUESTER_SEND_FAIL) {
 		MCTP_CTRL_ERR("%s: Failed to send message..\n", __func__);
+		ret = MCTP_RET_REQUEST_FAILED;
 	}
 
-	return MCTP_RET_REQUEST_SUCCESS;
+	return ret;
 }
 
 /* Receive function for Prepare for Endpoint discovery */
@@ -187,6 +189,7 @@ mctp_ret_codes_t mctp_ep_discovery_send_request(int sock_fd,
 	mctp_requester_rc_t mctp_ret;
 	struct mctp_ctrl_cmd_ep_discovery ep_discovery;
 	struct mctp_ctrl_req ep_req;
+	mctp_ret_codes_t ret = MCTP_RET_REQUEST_SUCCESS;
 	size_t msg_len;
 	mctp_eid_t dest_eid;
 	void *pvt_binding = NULL;
@@ -242,9 +245,10 @@ mctp_ret_codes_t mctp_ep_discovery_send_request(int sock_fd,
 
 	if (mctp_ret == MCTP_REQUESTER_SEND_FAIL) {
 		MCTP_CTRL_ERR("%s: Failed to send message..\n", __func__);
+		ret = MCTP_RET_REQUEST_FAILED;
 	}
 
-	return MCTP_RET_REQUEST_SUCCESS;
+	return ret;
 }
 
 /* Receive function for Prepare for Endpoint discovery */
