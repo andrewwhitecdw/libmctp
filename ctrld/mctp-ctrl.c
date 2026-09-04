@@ -311,6 +311,8 @@ static const struct option g_options[] = {
 	{ "get_eid_timer", required_argument, 0, 'g' },
 	{ "perform_device_reset", no_argument, false, 'W' },
 	{ "get-eid-max-fails", required_argument, 0, 'K' },
+	{ "vendor_id", required_argument, 0, 'k' },
+	{ "product_id", required_argument, 0, 'l' },
 
 	/* USB specific options */
 	{ "port_path", required_argument, 0, 'w' },
@@ -1424,6 +1426,24 @@ static void parse_command_line(int argc, char *const *argv,
 					"%s: GetEID max failures in window: %u\n",
 					__func__,
 					cmdline->usb.get_eid_max_fails);
+			}
+			break;
+		case 'k':
+			if (cmdline->binding_type == MCTP_BINDING_USB) {
+				cmdline->usb.vendor_id =
+					(uint16_t)strtol(optarg, NULL, 16);
+				MCTP_CTRL_INFO("%s: USB vendor ID: 0x%04x\n",
+					       __func__,
+					       cmdline->usb.vendor_id);
+			}
+			break;
+		case 'l':
+			if (cmdline->binding_type == MCTP_BINDING_USB) {
+				cmdline->usb.product_id =
+					(uint16_t)strtol(optarg, NULL, 16);
+				MCTP_CTRL_INFO(
+					"%s: USB product ID: 0x%04x\n",
+					__func__, cmdline->usb.product_id);
 			}
 			break;
 		case 'w':
